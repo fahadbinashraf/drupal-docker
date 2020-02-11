@@ -1,0 +1,17 @@
+Please be aware of below things before you start.
+
+1. The MySQL is empty on first run of "docker-compose up" (except the "root"), 
+   so a DB dump of the project's database is needed, then create user access 
+   that matches the definition in project, for Ipso 2.x, it's defined in:
+   
+   > root/iPSo/module/ipso.settings/conf/dbconnect.php
+
+2. To import the DB dump, use the "dbadmin2" tool:
+
+   http://<project>.<user>-dev.vircon.net/dbadmin2/
+
+3. The "$mysqlhost" is specially configured to work with Docker container's 
+   DNS name (defined in docker-compose.yml), it should NOT be checked in 
+   to trunk or deploy.
+
+   >	$mysqlhost = 'ipso-db';  
